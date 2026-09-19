@@ -15,22 +15,39 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+
 def setup_logging(verbose=False):
     """Configure logging for the pipeline."""
-    pass # TODO: implement
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)-8s %(message)s",
+        datefmt="%H:%M:%S")
+
+    if verbose:
+        logger.setLevel(logging.DEBUG)
+
+
 
 def parse_arguments():
     """Parse command-line arguments."""
     pass # TODO: implement
 
+
+
 def validate_input(filepath):
     """Check whether the input path exists and is a file."""
     pass # TODO: implement
+
+
 
 def main():
     """Main pipeline function."""
     pass # TODO: implement
 
+
+
 if __name__ == "__main__":
     main()
+
 

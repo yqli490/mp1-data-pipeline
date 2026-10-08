@@ -22,18 +22,35 @@ def load_json(filepath):
     """Load a JSON file into a Python object (dict or list).
     filepath is a Path object.
     """
-    pass
+    with open(filepath, "r") as f:
+        data = json.load(f)
+    logger.info(f"Loaded JSON file: {filepath}")
+    return data
 
 
 def load_yaml(filepath):
     """Load a YAML file into a Python object.
     filepath is a Path object.
     """
-    pass
+    with open(filepath, "r") as f:
+        data = yaml.safe_load(f)
+    logger.info(f"Loaded YAML file: {filepath}")
+    return data
 
 
 def load_data(filepath):
     """Load a file based on its extension.
     filepath is a string, such as 'fixtures/sample.csv'
     """
-    pass
+    path = Path(filepath)
+    extension = path.suffix.lower()
+
+    if extension == ".csv":
+        return load_csv(path)
+    elif extension == ".json":
+        return load_json(path)
+    elif extension == ".yaml":
+        return load_yaml(path)
+    else:
+        logger.error(f"Unsupported file format: {extension}")
+        raise ValueError(f"Unsupported file format: {extension}")

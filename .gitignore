@@ -15,3 +15,7 @@ EOF
 # Virtual environment
 venv/
 EOF
+
+# Output
+output/
+EOF

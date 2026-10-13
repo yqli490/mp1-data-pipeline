@@ -10,12 +10,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
-EOF
+
 
 # Virtual environment
 venv/
-EOF
+
 
 # Output
 output/
-EOF
